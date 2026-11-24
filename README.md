@@ -47,6 +47,6 @@ Versienummers zoals `[v0.1.1]` verwijzen naar vastgelegde wijzigingen in het res
 
 Deze repository is openbaar. Publiceer geen echte klantgegevens, database-exports, inloggegevens, API-sleutels of interne configuratie. Test met fictieve gegevens.
 
-## Status en herkomst
+## Projectstatus
 
-De broncode-import, aanvullende conceptimplementaties, documentatie en Git-inrichting zijn op 24 november 2026 met hulp van ChatGPT gemaakt. De Git-geschiedenis laat die wijzigingen zien, niet een gereconstrueerde geschiedenis van eerder ontwikkelwerk. De werking van de concepten en wijzigingen in de actieve WordPress-installatie is nog niet geverifieerd. Zie [K1-W3](docs/k1-w3.md).
+De repository bevat de beschikbare broncode, technische documentatie en versiegeschiedenis. De werking van de conceptimplementaties en recente wijzigingen moet nog in een WordPress-testomgeving worden gecontroleerd. Zie [K1-W3](docs/k1-w3.md) voor de verdere verantwoording.
