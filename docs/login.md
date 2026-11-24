@@ -1,5 +1,13 @@
 # Login – US 1.2
 
-Definitieve actieve snippet nog exporteren uit Code Snippets.
+`snippets/login.php` is een conceptimplementatie. Vergelijk met de actieve snippet voordat je hem gebruikt.
 
-Controleer inloggen met geldige gegevens, weigering bij een onjuist wachtwoord, een veilige foutmelding en de gewenste doorverwijzing. Controleer toegang met een klantaccount.
+Shortcode: `[custom_login]`. WordPress controleert de inloggegevens. Controleer de slugs `/inloggen/`, `/registerformulier/` en `/hoofdpagina/` op de website.
+
+## Testen
+- Geldige en ongeldige inloggegevens.
+- Inloggen met gebruikersnaam en e-mailadres.
+- Ongeldige formulieraanvraag en doorverwijzing.
+- Toegang met een klantaccount.
+
+Testresultaten nog vastleggen.
