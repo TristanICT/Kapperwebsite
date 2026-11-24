@@ -1,5 +1,13 @@
 # Dashboard
 
-Definitieve actieve snippet nog exporteren uit Code Snippets. Het eerder beschreven dashboard toont afspraken op datum en tijd binnen WordPress en gebruikt manage_options. Dit moet nog tegen de actieve broncode worden gecontroleerd.
+`snippets/dashboard.php` is een conceptimplementatie op basis van de beschreven beheerpagina. Vergelijk met de actieve snippet voordat je hem gebruikt.
 
-Controleer of alleen bevoegde accounts toegang hebben, of reserveringen zichtbaar zijn en of ingevoerde opmerkingen als tekst worden weergegeven. Wijzigen en annuleren zijn niet bevestigd als gerealiseerd.
+Het dashboard toont maximaal 500 afspraken, gesorteerd op datum en tijd. Het gebruikt `manage_options` voor toegang en controleert de bevoegdheid ook in de functie. Wijzigen en annuleren zijn niet geïmplementeerd in dit concept.
+
+## Testen
+- Reservering zichtbaar in het dashboard.
+- Klantaccount heeft geen toegang.
+- Ongewenste HTML wordt niet uitgevoerd.
+- Lege tabel en ontbrekende tabel worden correct afgehandeld.
+
+Testresultaten nog vastleggen.
