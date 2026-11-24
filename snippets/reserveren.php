@@ -80,6 +80,14 @@ function kapper_v2_process_booking() {
 
     $table = $wpdb->prefix . 'kapper_appointments';
 
+    // Formuliervelden moeten tekstwaarden zijn, geen arrays.
+    foreach (['return_url', 'kapper_nonce', 'website', 'name', 'email', 'phone', 'service', 'date', 'time', 'notes'] as $field) {
+        if (isset($_POST[$field]) && !is_string($_POST[$field])) {
+            wp_safe_redirect(add_query_arg('kapper_status', 'invalid', home_url('/')));
+            exit;
+        }
+    }
+
     // Terugkeeradres controleren
     $return_url = isset($_POST['return_url'])
         ? esc_url_raw(wp_unslash($_POST['return_url']))
@@ -266,7 +274,7 @@ function kapper_v2_booking_form() {
     $services = kapper_v2_services();
     $times = kapper_v2_times();
 
-    $status = isset($_GET['kapper_status'])
+    $status = isset($_GET['kapper_status']) && is_string($_GET['kapper_status'])
         ? sanitize_key(wp_unslash($_GET['kapper_status']))
         : '';
 
