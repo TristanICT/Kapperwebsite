@@ -3,7 +3,7 @@
 De repository is op 24 november 2026 met hulp van ChatGPT ingericht. De volgende handelingen zijn bedoeld om zelf uit te voeren en te kunnen uitleggen; dit document is geen bewijs dat ze al zijn uitgevoerd.
 
 ## 1. Bestaande pull request beoordelen
-Open pull request #1 (feature/reserveringen naar develop). Bekijk Files changed en Commits, controleer de broncode en voeg de wijzigingen pas samen wanneer je akkoord bent. Maak daarna een pull request van develop naar main en controleer ook die.
+Bekijk de samengevoegde pull request #1 (feature/reserveringen naar develop) en #6 (develop naar main). Onder Files changed en Commits kun je de wijzigingen en commitberichten terugvinden. De merges zijn uitgevoerd bij het inrichten van de repository; voer voor eigen praktijkbewijs een volgende wijziging zelf uit.
 
 ## 2. Zelf een wijziging beheren
 - Maak vanuit de actuele main of develop een nieuwe featurebranch voor een echte wijziging in je website.
