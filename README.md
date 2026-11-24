@@ -1,25 +1,52 @@
 # Kapperswebsite
 
-WordPress / Oxygen Builder / PHP / MySQL. Deze repository bevat broncode van losse Code Snippets en documentatie voor B1-K1-W3 (Realiseert onderdelen van software).
+Online reserveringssysteem voor een kapsalon, ontwikkeld voor WordPress met Oxygen Builder, Code Snippets, PHP en MySQL.
 
-## Status
-- Reserveringssysteem: aangeleverde broncode staat op `feature/reserveringen` (pull request #1).
-- Registratie, login en dashboard: definitieve actieve snippets nog toevoegen.
-- WordPress-pagina's en Oxygen-ontwerpen worden apart beheerd; dit is geen volledige website-export.
+## Projectstructuur
+
+| Bestand | Functie | Status |
+|---|---|---|
+| `snippets/reserveren.php` | Reserveringsformulier, databaseopslag en bevestigingsmail | Aangeleverde broncode met latere validatieverbetering |
+| `snippets/registratie.php` | Klantaccount aanmaken | Concept, actieve snippet vergelijken |
+| `snippets/login.php` | Inloggen en doorverwijzen | Concept, actieve snippet vergelijken |
+| `snippets/dashboard.php` | Afsprakenoverzicht in WordPress | Concept, actieve snippet vergelijken |
+| `docs/` | Installatie, testcontroles en versiebeheer | Documentatie |
+| `CHANGELOG.md` | Versiewijzigingen | Reserveringsmodule |
+
+## Installatie
+
+1. Gebruik een WordPress-testomgeving met Code Snippets.
+2. Maak per PHP-bestand een aparte snippet en laat de openingsregel `<?php` weg. Vervang niet zomaar bestaande actieve snippets; vergelijk ze eerst.
+3. Activeer de reserveringssnippet en plaats `[kapper_reserveren]` op de reserveringspagina.
+4. Gebruik voor de conceptformulieren `[custom_register]` en `[custom_login]`. Controleer de pagina-slugs.
+5. Het dashboard verschijnt voor bevoegde beheerders in het WordPress-menu.
+6. Test de werking en rechten met fictieve accounts en afspraken.
+
+De repository is geen volledige WordPress- of Oxygen-export. De actieve registratie-, login-, dashboard- en eventuele accountpagina-snippets moeten nog worden vergeleken of geëxporteerd. Wijzigen en annuleren van afspraken zijn nog niet bevestigd als gerealiseerd.
 
 ## Versiebeheer
-`main` is de hoofdbranch, `develop` voor integratie, `feature/*` voor afzonderlijke onderdelen. Commits vanaf de import zijn nieuwe wijzigingen, geen reconstructie van eerder ontwikkelwerk. Controleer wijzigingen via pull requests voordat je ze overneemt in WordPress.
 
-## Commitconventie
-Gebruik korte Engelstalige commitberichten volgens de structuur `type: omschrijving`.
+- `main`: geïntegreerde projectbestanden; geen bevestigde live release.
+- `develop`: integratiebranch.
+- `feature/*`: afzonderlijke onderdelen en wijzigingen.
+- Gebruik een pull request om wijzigingen te vergelijken voordat ze worden samengevoegd.
 
-- `feat:` nieuwe functionaliteit.
-- `fix:` oplossen van een fout.
-- `docs:` documentatie aanpassen.
-- `chore:` onderhoud, configuratie of installatie.
-- `refactor:` code herstructureren zonder bedoeld nieuw gedrag.
+Commitberichten volgen de structuur `type: omschrijving`:
 
-Een versienummer zoals `[v0.1.1]` kan worden toegevoegd wanneer de wijziging aan een projectversie is gekoppeld. Gebruik alleen een prefix die past bij de daadwerkelijke wijziging. Eerdere commits blijven behouden.
+| Prefix | Betekenis |
+|---|---|
+| feat | Nieuwe functionaliteit |
+| fix | Fout oplossen |
+| docs | Documentatie |
+| chore | Onderhoud en configuratie |
+| refactor | Code herstructureren zonder bedoeld gewijzigd gedrag |
 
-## Privacy
-Deze repository is openbaar. Plaats geen klantgegevens, database-export, inloggegevens, API-sleutels of interne configuratie.
+Versienummers zoals `[v0.1.1]` verwijzen naar vastgelegde wijzigingen in het reserveringsonderdeel. Zie de [changelog](CHANGELOG.md) en de [handleiding versiebeheer](docs/versiebeheer.md).
+
+## Privacy en security
+
+Deze repository is openbaar. Publiceer geen echte klantgegevens, database-exports, inloggegevens, API-sleutels of interne configuratie. Test met fictieve gegevens.
+
+## Status en herkomst
+
+De broncode-import, aanvullende conceptimplementaties, documentatie en Git-inrichting zijn op 24 november 2026 met hulp van ChatGPT gemaakt. De Git-geschiedenis laat die wijzigingen zien, niet een gereconstrueerde geschiedenis van eerder ontwikkelwerk. De werking van de concepten en wijzigingen in de actieve WordPress-installatie is nog niet geverifieerd. Zie [K1-W3](docs/k1-w3.md).
