@@ -2,18 +2,36 @@
 // Conceptversie gebaseerd op de beschreven WordPress-beheerpagina.
 defined('ABSPATH') || exit;
 
+// Geef uitsluitend de eigenaar en beheerder toegang tot afspraken.
+add_action('init', 'kapper_dashboard_permissions', 20);
+function kapper_dashboard_permissions() {
+    $owner = get_role('kapper_eigenaar');
+    if (!$owner) {
+        $owner = add_role('kapper_eigenaar', 'Kapper eigenaar', ['read' => true]);
+    }
+    foreach ([$owner, get_role('administrator')] as $role) {
+        if ($role && !$role->has_cap('manage_kapper_appointments')) {
+            $role->add_cap('manage_kapper_appointments');
+        }
+    }
+    $customer = get_role('kapper_klant');
+    if ($customer && $customer->has_cap('manage_kapper_appointments')) {
+        $customer->remove_cap('manage_kapper_appointments');
+    }
+}
+
 add_action('admin_menu', 'kapper_admin_menu');
 function kapper_admin_menu() {
     add_menu_page(
-        'Kapper Reserveringen', 'Kapper Afspraken', 'manage_options',
+        'Kapper Reserveringen', 'Kapper Afspraken', 'manage_kapper_appointments',
         'kapper-reserveringen', 'kapper_admin_dashboard',
         'dashicons-calendar-alt', 26
     );
 }
 
 function kapper_admin_dashboard() {
-    if (!current_user_can('manage_options')) {
-        wp_die('Geen toegang.');
+    if (!current_user_can('manage_kapper_appointments')) {
+        wp_die('Geen toegang.', '', ['response' => 403]);
     }
     global $wpdb;
     $table = $wpdb->prefix . 'kapper_appointments';
