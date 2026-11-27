@@ -19,8 +19,16 @@ Online reserveringssysteem voor een kapsalon, ontwikkeld voor WordPress met Oxyg
 2. Maak per PHP-bestand een aparte snippet en laat de openingsregel `<?php` weg. Vervang niet zomaar bestaande actieve snippets; vergelijk ze eerst.
 3. Activeer de reserveringssnippet en plaats `[kapper_reserveren]` op de reserveringspagina.
 4. Gebruik voor de conceptformulieren `[custom_register]` en `[custom_login]`. Controleer de pagina-slugs.
-5. Het dashboard verschijnt voor bevoegde beheerders in het WordPress-menu.
+5. Het conceptdashboard gebruikt `manage_kapper_appointments`. De eigenaar en beheerder krijgen dit recht; een klant hoort geen toegang te hebben.
 6. Test de werking en rechten met fictieve accounts en afspraken.
+
+### Controles na de recente wijzigingen
+
+- Open het dashboard met een testaccount met de rol `kapper_eigenaar` en met een beheerder. Controleer dat beide de afspraken kunnen bekijken.
+- Open dezelfde dashboard-URL met een klantaccount; verwacht een weigering, ook bij rechtstreeks openen van de URL.
+- Test de registratie met een wachtwoord van 7, 8, 256 en 257 ASCII-tekens (één byte per teken). De servercontrole hoort 7 en 257 te weigeren. Gebruik unieke testaccounts en verwijder ze na afloop.
+
+Dit zijn voorgestelde hertests, geen uitgevoerde testresultaten. De wijzigingen staan in GitHub; de actieve WordPress-snippets zijn hiermee niet automatisch bijgewerkt.
 
 De repository is geen volledige WordPress- of Oxygen-export. De actieve registratie-, login-, dashboard- en eventuele accountpagina-snippets moeten nog worden vergeleken of geëxporteerd. Wijzigen en annuleren van afspraken zijn nog niet bevestigd als gerealiseerd.
 
