@@ -30,6 +30,9 @@ function kapper_registration_form() {
             $password = wp_unslash($raw_password);
             if (!validate_username($username) || !is_email($email) || strlen($password) < 8) {
                 $message = 'Vul geldige gegevens en een wachtwoord van minimaal 8 tekens in.';
+            } elseif (strlen($password) > 256) {
+                // Begrens ook rechtstreeks verstuurde formuliergegevens.
+                $message = 'Het wachtwoord is te lang (maximaal 256 bytes).';
             } elseif (username_exists($username) || email_exists($email)) {
                 $message = 'Er kan geen account met deze gegevens worden aangemaakt.';
             } elseif (!get_role('kapper_klant')) {
